@@ -10,21 +10,14 @@
  */
 
 $routes = [
-    'Item' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
-        ['add', '/item/add', ['GET', 'POST']], // action, url, method
-        ['edit', '/item/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
-        ['show', '/item/{id:\d+}', 'GET'], // action, url, method
-        ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
-    ],
+
     'Bonbon' => [ // Controller
         ['add', '/bonbon/add', 'POST'], // action, url, method
 
 ],
 
     'User' => [ // Controller
-        ['login', '/', 'POST'], // action, url, method
-
-    ]
-
+        ['login', '/login', 'POST'], // action, url, method
+        ['form', '/login', 'GET'], // action, url, method
+    ],
 ];
