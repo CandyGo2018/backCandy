@@ -26,4 +26,12 @@ class UserController extends AbstractController
     {
         return $this->twig->render('form.html.twig');
     }
+
+    public function winner()
+    {
+        $userManager = new UserManager($this->getPdo());
+        $users = $userManager->winner();
+        header('Content-Type: application/json');
+        return json_encode($users);
+    }
 }

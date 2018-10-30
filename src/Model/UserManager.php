@@ -27,4 +27,9 @@ class UserManager extends AbstractManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
 
     }
+
+    public function winner()
+    {
+        return $this->pdo->query("SELECT user.name, SUM(bonbondex.quantity) AS total FROM $this->table INNER JOIN bonbondex ON user.id=bonbondex.user_id GROUP BY name ORDER BY total DESC LIMIT 3")->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

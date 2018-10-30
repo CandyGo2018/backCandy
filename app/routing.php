@@ -22,5 +22,6 @@ $routes = [
     'User' => [ // Controller
         ['login', '/login', 'POST'], // action, url, method
         ['form', '/login', 'GET'], // action, url, method
+        ['winner', '/api/winner', 'GET'],
     ],
 ];
