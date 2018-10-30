@@ -28,35 +28,13 @@ class BonbonManager extends AbstractManager
         parent::__construct(self::TABLE, $pdo);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function IsBonbon (){
+    public function isAlreadyBonbon (){
         {
-            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE name=:name AND password=:password");
-            $statement->bindValue('name', $_POST['name'], \PDO::PARAM_STR);
+            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE user_id=:user_id AND bonbon_id=:bonbon_id");
+            $statement->bindValue('user_id', $_POST['user_id'], \PDO::PARAM_STR);
+            $statement->bindValue('bonbon_id', $_POST['bonbon_id'], \PDO::PARAM_STR);
             $statement->execute();
+            return $statement->fetch(\PDO::FETCH_ASSOC);
 
         }
     }
@@ -84,9 +62,9 @@ class BonbonManager extends AbstractManager
     public function update():int
     {
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE $this->table SET 'quantity' = 'quantity' + :quantity WHERE user_id=:user_id)");
+        $statement = $this->pdo->prepare("UPDATE $this->table SET quantity = quantity + :quantity WHERE user_id=:user_id");
         $statement->bindValue('quantity', $_POST['quantity'], \PDO::PARAM_STR);
-        $statement->bindValue('quantity', $_POST['user_id'], \PDO::PARAM_STR);
+        $statement->bindValue('user_id', $_POST['user_id'], \PDO::PARAM_STR);
 
         return $statement->execute();
 

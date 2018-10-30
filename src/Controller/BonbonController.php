@@ -24,7 +24,19 @@ class BonbonController extends AbstractController
         var_dump($_POST);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bonbonManager = new BonbonManager($this->getPdo());
-            $bonbon = $bonbonManager->insert();
+            $bonbon = $bonbonManager->isAlreadyBonbon();
+             if ($bonbon){
+
+                 $bonbon = $bonbonManager->update();
+             }else{
+                 $bonbonManager = new BonbonManager($this->getPdo());
+                 $newbonbon = $bonbonManager->insert();
+             }
         }
+    }
+
+    public function form()
+    {
+        return $this->twig->render('form.html.twig');
     }
 }

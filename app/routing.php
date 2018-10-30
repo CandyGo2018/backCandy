@@ -13,7 +13,7 @@ $routes = [
 
     'Bonbon' => [ // Controller
         ['add', '/bonbon/add', 'POST'], // action, url, method
-
+        ['form', '/bonbon/add', 'GET'], // action, url, method
 ],
 
     'User' => [ // Controller
