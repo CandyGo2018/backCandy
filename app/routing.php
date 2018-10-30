@@ -11,10 +11,13 @@
 
 $routes = [
 
-    'Bonbon' => [ // Controller
+    'Bonbondex' => [ // Controller
         ['add', '/bonbon/add', 'POST'], // action, url, method
         ['form', '/bonbon/add', 'GET'], // action, url, method
 ],
+    'Bonbon' => [ // Controller
+        ['index', '/bonbons', 'GET'], // action, url, method
+    ],
 
     'User' => [ // Controller
         ['login', '/login', 'POST'], // action, url, method

@@ -1,15 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
-<<<<<<< HEAD
- * User: celine
- * Date: 30/10/18
- * Time: 17:52
-=======
  * User: wilder
  * Date: 30/10/18
- * Time: 17:49
->>>>>>> ef10d32799d31244309f62df7fc3829b95a18187
+ * Time: 21:58
  */
 
 namespace Controller;
@@ -18,25 +12,11 @@ use Model\BonbonManager;
 
 class BonbonController extends AbstractController
 {
-
-    public function add()
+    public function index()
     {
-        var_dump($_POST);
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $bonbonManager = new BonbonManager($this->getPdo());
-            $bonbon = $bonbonManager->isAlreadyBonbon();
-             if ($bonbon){
-
-                 $bonbon = $bonbonManager->update();
-             }else{
-                 $bonbonManager = new BonbonManager($this->getPdo());
-                 $newbonbon = $bonbonManager->insert();
-             }
-        }
-    }
-
-    public function form()
-    {
-        return $this->twig->render('form.html.twig');
+        $bonbonManager = new BonbonManager($this->getPdo());
+        $bonbons = $bonbonManager->selectAllCandy();
+        header('Content-Type: application/json');
+        return json_encode($bonbons);
     }
 }
