@@ -25,3 +25,10 @@ $routes = [
         ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
     ],
 ];
+
+$routes = [
+    'User' => [ // Controller
+        ['login', '/', 'POST'], // action, url, method
+
+    ],
+];

@@ -1,7 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
+<<<<<<< HEAD
  * User: celine
+=======
+ * User: wilder
+>>>>>>> ef10d32799d31244309f62df7fc3829b95a18187
  * Date: 30/10/18
  * Time: 17:52
  */
@@ -9,7 +13,7 @@
 namespace Model;
 
 
-class BonbonManager
+class BonbonManager extends AbstractManager
 {
     /**
      *
@@ -83,4 +87,5 @@ class BonbonManager
         return $statement->execute();
 
     }
+
 }
