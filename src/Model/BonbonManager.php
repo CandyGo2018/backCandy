@@ -52,18 +52,22 @@ class BonbonManager extends AbstractManager
 
 
 
-    public function existBonbon ($_POST['']){
+    public function IsBonbon (){
+        {
+            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE name=:name AND password=:password");
+            $statement->bindValue('name', $_POST['name'], \PDO::PARAM_STR);
+            $statement->execute();
 
+        }
     }
 
-    public function insert($_POST): int
+    public function insert(): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table ('user_id','bonbon_id', 'quantity' ) VALUES (:user_id, :bonbon_id, :quantity)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (user_id, bonbon_id, quantity ) VALUES (:user_id, :bonbon_id, :quantity)");
         $statement->bindValue('user_id', $_POST['user_id'], \PDO::PARAM_STR);
         $statement->bindValue('bonbon_id', $_POST['bonbon_id'], \PDO::PARAM_STR);
         $statement->bindValue('quantity', $_POST['quantity'], \PDO::PARAM_STR);
-
 
         if ($statement->execute()) {
             return $this->pdo->lastInsertId();
@@ -77,7 +81,7 @@ class BonbonManager extends AbstractManager
      * @param Item $item
      * @return int
      */
-    public function update($_POST):int
+    public function update():int
     {
         // prepared request
         $statement = $this->pdo->prepare("UPDATE $this->table SET 'quantity' = 'quantity' + :quantity WHERE user_id=:user_id)");

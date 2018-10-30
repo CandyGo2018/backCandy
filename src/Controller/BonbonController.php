@@ -14,33 +14,17 @@
 
 namespace Controller;
 
+use Model\BonbonManager;
 
+class BonbonController extends AbstractController
+{
 
-class BonbonController extends AbstractController{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-public function addBonbon{
-
-    if ()
-}
-
-
-
-
-
-
+    public function add()
+    {
+        var_dump($_POST);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $bonbonManager = new BonbonManager($this->getPdo());
+            $bonbon = $bonbonManager->insert();
+        }
+    }
 }
