@@ -36,10 +36,6 @@ class BonbondexController extends AbstractController
         }
     }
 
-    public function form()
-    {
-        return $this->twig->render('form.html.twig');
-    }
 
     public function show($id)
     {

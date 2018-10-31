@@ -13,7 +13,6 @@ $routes = [
 
     'Bonbondex' => [ // Controller
         ['add', '/bonbon/add', 'POST'], // action, url, method
-        ['form', '/bonbon/add', 'GET'], // action, url, method
         ['show', '/user/{id:\d+}', 'GET'],
 ],
     'Bonbon' => [ // Controller
@@ -22,7 +21,6 @@ $routes = [
 
     'User' => [ // Controller
         ['login', '/login', 'POST'], // action, url, method
-        ['form', '/login', 'GET'], // action, url, method
         ['winner', '/winner', 'GET'],
 
     ],
