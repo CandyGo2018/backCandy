@@ -70,7 +70,7 @@ class BonbondexManager extends AbstractManager
     public function selectOneByUser($id)
     {
 
-        $statement = $this->pdo->prepare("SELECT user.name,bonbon.name, bonbondex.quantity 
+        $statement = $this->pdo->prepare("SELECT user.name,bonbon.name, bonbon.picture, bonbondex.quantity 
 FROM $this->table INNER JOIN user ON bonbondex.user_id=user.id 
 INNER JOIN bonbon ON bonbondex.bonbon_id=bonbon.id WHERE user_id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
