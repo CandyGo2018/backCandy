@@ -15,6 +15,7 @@
 namespace Controller;
 
 use Model\BonbondexManager;
+use Model\BonbonManager;
 
 class BonbondexController extends AbstractController
 {
@@ -40,5 +41,13 @@ class BonbondexController extends AbstractController
         return $this->twig->render('form.html.twig');
     }
 
+    public function show($id)
+    {
+        $bonbonManager = new BonbondexManager($this->getPdo());
+        $bonbon = $bonbonManager->selectOneByUser($id);
+
+        header('Content-Type: application/json');
+        return json_encode($bonbon);
+    }
 
 }

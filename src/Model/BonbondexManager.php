@@ -52,9 +52,6 @@ class BonbondexManager extends AbstractManager
         }
     }
 
-
-
-
     /**
      * @param Item $item
      * @return int
@@ -67,6 +64,19 @@ class BonbondexManager extends AbstractManager
         $statement->bindValue('user_id', $_POST['user_id'], \PDO::PARAM_STR);
 
         return $statement->execute();
+
+    }
+
+    public function selectOneByUser($id)
+    {
+
+        $statement = $this->pdo->prepare("SELECT user.name,bonbon.name, bonbondex.quantity 
+FROM $this->table INNER JOIN user ON bonbondex.user_id=user.id 
+INNER JOIN bonbon ON bonbondex.bonbon_id=bonbon.id WHERE user_id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+
+        $statement->execute();
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
 
     }
 
