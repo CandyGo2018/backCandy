@@ -35,7 +35,7 @@ CREATE TABLE `bonbon` (
   `name` varchar(255) DEFAULT NULL,
   `picture` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `bonbon` (
 
 LOCK TABLES `bonbon` WRITE;
 /*!40000 ALTER TABLE `bonbon` DISABLE KEYS */;
-INSERT INTO `bonbon` VALUES (1,'tagada','https://www.laboutiqueharibo.fr/media/catalog/product/cache/1/image/1200x/040ec09b1e35df139433887a97daa66f/h/a/haribo-tagada-sachet-120g.png'),(2,'crocodile','https://www.123bonbon.com/869-large_default/hari-crocodiles-sachets.jpg'),(3,'Happy cola','data:image/jpeg;base64');
+INSERT INTO `bonbon` VALUES (1,'tagada','https://www.laboutiqueharibo.fr/media/catalog/product/cache/1/image/1200x/040ec09b1e35df139433887a97daa66f/h/a/haribo-tagada-sachet-120g.png'),(2,'crocodile','https://www.123bonbon.com/869-large_default/hari-crocodiles-sachets.jpg'),(3,'happy cola','https://images-na.ssl-images-amazon.com/images/I/41gI6n3fJrL.jpg'),(4,'nounours','https://www.allobonbons.com/1941-large_default/4-sachets-de-120-gr-ours-d-or-haribo.jpg'),(5,'nounours guimauve','https://m.media-amazon.com/images/S/aplus-media/vc/e58a1f27-67d7-4dbd-b9d3-6d496e5e5cd1._CR0,0,300,300_PT0_SX300__.jpg'),(6,'dragibus','https://www.etsdupleix.com/1954-thickbox_default/4-sachets-de-120-gr-dragibus-haribo.jpg'),(7,'oeufs au plat','https://www.laboutiqueharibo.fr/media/catalog/product/cache/1/image/1200x/040ec09b1e35df139433887a97daa66f/o/e/oeufs_au_plat.png'),(8,'rotella','https://www.themadeco.fr/54663-large/rouleau-reglisse-rotella-haribo.jpg'),(9,'carensac','http://valgourmand.com/v/1/c/c_1vals_ha104.jpg'),(10,'haribat','https://www.bonbon-foliz.com/media/images-produits/haribo/haribat-haribo-3863.jpg'),(11,'miami pik','https://i2.cdscdn.com/pdt2/7/7/4/1/700x700/har3103220034774/rw/haribo-miami-pik-sachet.jpg'),(12,'flower power','http://probel-group.com/284-large_default/product.jpg'),(13,'tagada pik','https://images-na.ssl-images-amazon.com/images/I/91grfdA94FL._SX466_.jpg'),(14,'tagada purple','https://i2.cdscdn.com/pdt2/5/7/7/1/700x700/har3103220037577/rw/haribo-tagada-purple-intense-250g.jpg'),(15,'oeil','http://www.lafoliedubonbon.fr/img/p/201-951-thickbox.jpg'),(16,'fingers','https://www.candywarehouse.com/assets/item/regular/gummy-fingers-candy-130068.jpg'),(17,'organes','https://www.candywarehouse.com/assets/item/regular/candy-body-parts-129395-im.jpg'),(18,'chenilles','https://static.openfoodfacts.org/images/products/20054922/front_fr.8.full.jpg'),(19,'cervelles','https://www.candywarehouse.com/assets/item/regular/gummy-internal-organs-candy-131251-w.jpg'),(20,'squellettes','https://www.candywarehouse.com/assets/item/regular/gummy-skulls-candy-130071.jpg'),(21,'tombe','https://www.candywarehouse.com/assets/item/regular/rest-in-pieces-candy-gravestones-130474-w.jpg'),(22,'sucre d\'orge','http://www.bonbonsaupalais.fr/322-large_default/le-sucre-d-orge.jpg'),(23,'banane','http://valgourmand.com/v/1/c/c_1haribo_ha102.jpg'),(24,'diable','https://www.bonbonz.be/1176-home_default/bonbon-tete-de-diable-rouge.jpg');
 /*!40000 ALTER TABLE `bonbon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `bonbondex` (
   KEY `bonbon_id` (`bonbon_id`),
   CONSTRAINT `bonbondex_ibfk_1` FOREIGN KEY (`bonbon_id`) REFERENCES `bonbon` (`id`),
   CONSTRAINT `user_idfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `bonbondex` (
 
 LOCK TABLES `bonbondex` WRITE;
 /*!40000 ALTER TABLE `bonbondex` DISABLE KEYS */;
-INSERT INTO `bonbondex` VALUES (1,1,1,1),(2,2,3,6);
+INSERT INTO `bonbondex` VALUES (1,1,1,1),(2,2,3,6),(3,3,2,4),(4,4,2,6),(5,5,3,2),(6,1,2,6),(7,1,3,7);
 /*!40000 ALTER TABLE `bonbondex` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `user` (
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'paul','paul'),(2,'jack','jack');
+INSERT INTO `user` VALUES (1,'paul','paul'),(2,'jack','jack'),(3,'lisa','lisa'),(4,'loic','loic'),(5,'alex','alex');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-30 18:48:08
+-- Dump completed on 2018-10-31  1:27:56
